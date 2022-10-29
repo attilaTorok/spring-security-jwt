@@ -13,7 +13,7 @@ import java.util.stream.Collectors
 @Service
 class TokenService(private val jwtEncoder: JwtEncoder) {
 
-    fun generateToken(authentication: Authentication): String? {
+    fun generateToken(authentication: Authentication): String {
         val now = Instant.now()
         val scope = authentication.authorities.stream()
             .map(GrantedAuthority::getAuthority)
